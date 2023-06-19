@@ -1,0 +1,159 @@
+{%extends 'base.html'%}
+{% block title %}
+Person | INDEX
+{% endblock %}
+{% block body_content %}
+<div class="container">
+    <h1>Student LIST | SES</h1>
+    <hr>
+    <h4>This is stuent list of ses.</h4>
+    <div class="card">
+        <div class="card-header">
+            <h3>Student List</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Full Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Address:</th>
+                        <th colspan="3">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for val in std_list %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ val.name }}</td>
+                        <td>{{ val.age }}</td>
+                        <td>{{ val.email }}</td>
+                        <td>{{ val.address}}</td>
+                        <td><a href="#"><img src="https://www.wonderplugin.com/wp-content/uploads/2013/12/Evening_1024.jpg" alt=""width='100'height='100'></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{%for users in std_list%}
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-md-9 col-lg-7 col-xl-5">
+          <div class="card" style="border-radius: 15px; background-color: #93e2bb;">
+            <div class="card-body p-4 text-black">
+              <div>
+                <h6 class="mb-4">PYTHON </h6>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <p class="small mb-0"><i class="far fa-clock me-2"></i>3 hrs</p>
+                  <p class="fw-bold mb-0">RS.90000</p>
+                </div>
+              </div>
+            
+              <div class="d-flex align-items-center mb-4">
+                <div class="flex-shrink-0">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-2.webp"
+                    alt="Generic placeholder image" class="img-fluid rounded-circle border border-dark border-3"
+                    style="width: 70px;">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <div class="d-flex flex-row align-items-center mb-2">
+                    <p class="mb-0 me-2">@{{users.name}}</p>
+                    <ul class="mb-0 list-unstyled d-flex flex-row" style="color: #1B7B2C;">
+                      <li>
+                        <i class="fas fa-star fa-xs"></i>
+                      </li>
+                      <li>
+                        <i class="fas fa-star fa-xs"></i>
+                      </li>
+                      <li>
+                        <i class="fas fa-star fa-xs"></i>
+                      </li>
+                      <li>
+                        <i class="fas fa-star fa-xs"></i>
+                      </li>
+                      <li>
+                        <i class="fas fa-star fa-xs"></i>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm"
+                      data-mdb-ripple-color="dark">+ Follow</button>
+                    <button type="button" class="btn btn-outline-dark btn-rounded btn-sm"
+                      data-mdb-ripple-color="dark">See profile</button>
+                    <button type="button" class="btn btn-outline-dark btn-floating btn-sm"
+                      data-mdb-ripple-color="dark"><i class="fas fa-comment"></i></button>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <p class="my-4 pb-1">52 comments</p>
+              <button type="button" class="btn btn-success btn-rounded btn-block btn-lg"><i
+                  class="far fa-clock me-2"></i>Book now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+  </section>
+  <h1>THIS IS A QR CODE OF OUR MENU</h1>
+<img src='https://scontent.fktm17-1.fna.fbcdn.net/v/t1.15752-9/353107565_223414670548955_5608027278590671917_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=YK1rmFkT8AoAX8SEWpg&_nc_ht=scontent.fktm17-1.fna&oh=03_AdQchwDWJlPpDhWWO6IrA66Iu2z83Q-Ns4vK5JGA9VnQyw&oe=64B3A610' height='250px' width='250px'>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for data in images %}
+     <br><img src="{{data.img.url}}" height="50px" width="50px"><br>
+     <label>Upload Image</label>
+     <input type="file" name="img"><br><br>
+     <input type="submit" value="Upload">
+     {% endfor %}
+</form>
+{%for images in images%}
+<div class="container" my-4>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{images.img.url}}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>ZIPPO</h5>
+              <p>Comes with lifetime guarantee.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{images.img.url}}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1585336381821-d47d792c7d6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8emlwcG8lMjBsaWdodGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+  </div>
+  {%endfor%}
+{% endblock %}
+{% comment %} {{data.Image.url}}  data chai for loop ko and image is model {% endcomment %}

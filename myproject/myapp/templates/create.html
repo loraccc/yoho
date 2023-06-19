@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{% block title %}
+Person | CREATE
+{% endblock %}
+{% block body_content %}
+<div class="container">
+    <h1>Student CREATE | SES</h1>
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h2>person | SES</h2>
+        </div>
+        <div class="card-body">
+            <form action="#">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" class="btn btn-primary" value="ADD STUDENT">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
