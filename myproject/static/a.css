@@ -1,0 +1,16 @@
+body{
+    background-color: chocolate;
+}
+h1{
+    color: rgb(237, 0, 0);
+}
+table, th, td {
+    border: 9px solid;
+    }
+tr:hover {
+    background-color: rgb(175, 189, 236);}
+
+navbar:hover{
+    background-color: blue;
+
+}

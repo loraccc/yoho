@@ -20,3 +20,11 @@ class course(models.Model):
     
 class Image(models.Model):
     img = models.ImageField(upload_to='images')
+    
+class Cart(models.Model):
+    item_name = models.CharField(max_length=100)
+    quantity = models.PositiveIntegerField(default=0)
+    # Add other fields as needed
+
+    def __str__(self):
+        return self.item_name

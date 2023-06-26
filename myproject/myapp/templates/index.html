@@ -1,4 +1,6 @@
-{%extends 'base.html'%}
+{%extends 'base.html' %}
+{% load static %}
+<link rel='stylesheet' href={% static % 'a.css'}>
 {% block title %}
 Person | INDEX
 {% endblock %}
@@ -113,6 +115,7 @@ Person | INDEX
      <input type="submit" value="Upload">
      {% endfor %}
 </form>
+<a href="{% url 'add_to_cart' %}" class="btn btn-primary">Add to Cart</a>
 {%for images in images%}
 <div class="container" my-4>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
